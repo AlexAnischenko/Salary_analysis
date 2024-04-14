@@ -16,3 +16,6 @@
 # Автор
 
 Анищенко Александр
+
+- [Jupyter Notebook с аналитикой](https://github.com/AlexAnischenko/Salary_analysis/blob/main/Salary_analysis.ipynb)
+- [Веб-приложение в Streamlit](https://salaryanalysis-a9zgpb9rsfdjm47nklhmkf.streamlit.app/)
