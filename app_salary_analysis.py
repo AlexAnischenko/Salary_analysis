@@ -24,10 +24,14 @@ def plt_salary_growth(df, years):
 plt_salary_growth(df1, '2000-2016')
 plt_salary_growth(df2,  '2017-2023')
 
+st.markdown('Данные по выбранным экономическим деятельностям')
+
 df = df1.merge(df2, how='inner', on='Деятельность')
 economic_sectors = st.sidebar.multiselect('Выберете экономические деятельности', df['Деятельность'], default='Всего по экономике')
 df.set_index('Деятельность', inplace=True)
 years = list(map(int, df.columns))
+
+st.dataframe(df)
 
 st.markdown('Построим графики изменения зарплаты по годам для выбранных видов экономической деятельности.')
 
@@ -51,8 +55,13 @@ st.markdown("""Можно отметить, что несмотря на общ�
 
 st.warning(' Надо учесть инфляцию для подсчета реальной динамики зарплат.')
 
+st.markdown('Данные по темпам инфляции')
+
 inflation = pd.read_csv("Inflation_rate.csv")
 inflation.set_index('Год', inplace=True)
+
+st.dataframe(inflation)
+
 inflation = inflation.iloc[24::-1]
 inflation_temps = inflation['Всего'].values
 
